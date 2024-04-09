@@ -18,8 +18,8 @@ class Config(object):
         self.has = dict()
         self.has["license"] = False
         self.loadDefaults()
-        # self.loadProgConfig()
-        # self.update()
+        self.loadProgConfig()
+        self.update()
         self.version=__version__
         self.data_path = DATA_PATH
 
