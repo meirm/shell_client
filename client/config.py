@@ -8,6 +8,7 @@ basicConfig = dict()
 basicConfig["showDisclaimer"] = basicConfig.get("showDisclaimer",True)
 basicConfig["verbose"] = basicConfig.get("verbose", False)
 basicConfig["debug"] = basicConfig.get("debug", False)
+basicConfig["drf_host"] = basicConfig.get("drf_host", "http://localhost:8000")
 
 class Config(object):
     def __init__(self):
@@ -18,8 +19,8 @@ class Config(object):
         self.has = dict()
         self.has["license"] = False
         self.loadDefaults()
-        # self.loadProgConfig()
-        # self.update()
+        self.loadProgConfig()
+        self.update()
         self.version=__version__
         self.data_path = DATA_PATH
 
@@ -67,6 +68,8 @@ class Config(object):
         self.progConfig["showDisclaimer"] = self.progConfig.get("showDisclaimer",True)
         self.progConfig["verbose"] = self.progConfig.get("verbose", False)
         self.progConfig["debug"] = self.progConfig.get("debug", False)
+        self.progConfig["drf_host"] = self.progConfig.get("drf_host", "http://localhost:8000")
+        
 
     def printConfig(self):
         """Print the configuration file"""
