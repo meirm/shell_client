@@ -1,7 +1,6 @@
 """"""
 import os
-from pathlib import Path
-from tools import load_json, eprint, strToValue
+from tools import strToValue
 import toml
 from client import program_name, __version__
 DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")

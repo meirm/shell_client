@@ -1,5 +1,3 @@
 toml
 click
 rich
-backoff
-requests

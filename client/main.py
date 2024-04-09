@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 """
-program_name is a simple command line tool for interacting with OpenAI's API.
-It is based on the example provided by OpenAI at https://beta.openai.com/docs/developer-quickstart/1-introduction
-Date: 2023/01/23
+program_name is a simple command line tool for interacting with the user and the program_name API.
+Date: 2024/04/09
 """
 
 
@@ -10,18 +9,11 @@ import os
 import sys
 if __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from client import __version__, __title__, __author__, __license__, __credits__, program_name
-
-from config import Config, basicConfig
+from client import __version__
+from config import Config
 import click
-from rich import print
-import backoff
-import time
-import toml
 import platform
-import subprocess
 from shell import Shell
-from tools import eprint, sanitizeName
 
 
 

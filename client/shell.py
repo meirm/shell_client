@@ -1,31 +1,13 @@
 import cmd
-import shlex
 import pkgutil
-import shutil 
-from tools   import eprint, sanitizeName
+from tools import eprint
 import toml
 import os
-import sys
-import rich
 import importlib
-from pathlib import Path
 from rich import print
-from rich.text import Text
-from rich.style import Style
-from rich.prompt import Prompt, Confirm
-from rich.panel import Panel
-from rich.markdown import Markdown
-from tools import strToValue
-import datetime
 from rich.console import Console
-import click
-from filecmp import cmp
 import subprocess
 from client import program_name
-
-danger_style = Style(color="red", blink=False, bold=True)
-attention_style = Style(color="yellow", blink=False, bold=True)
-ok_style = Style(color="green", blink=False, bold=False)
 
 
 
@@ -46,21 +28,7 @@ class Shell(cmd.Cmd):
         self._register_completion_methods()
         self.prompt = f"{program_name}> "
         self.conversation_parameters = {}
-        # self.conversation_parameters = {
-        #     "subject": "test",
-        #     "scenario": "ChatGPT",
-        #     "model": "gpt-3.5-turbo",
-        #     "defaultCommand": "query",
-        #     "execute": False
-
-        # }
-        # if os.path.exists(os.path.join(self._config.settingsPath, "last.toml")):
-        #     self.conversation_parameters.update(toml.load(os.path.join(self._config.settingsPath, "last.toml")))
-        # self.prompt = f"{self.conversation_parameters['scenario']}> "
-        # when we load we initializer the chat list
-        # self.chatList = self._config.chat.createPrompt(self.conversation_parameters['subject'], self.conversation_parameters['scenario'], None)
-        # self._config.chat.load(self.chatList)
-        # self.commands["update"]("")
+        self.conversation_parameters["defaultCommand"] = "query"
 
     
     def _register_commands(self):
@@ -167,7 +135,6 @@ class Shell(cmd.Cmd):
 
     def default(self, line):
         if line == "!!":
-            # take the last response from AI and execute it. This is meanly useful when using the sharedTerminal scenario. We want to capture the output and feed it into the conversation as the user prompt.
             if self.lastResponse:
                 self.commands["exec"](self.lastResponse)
 
