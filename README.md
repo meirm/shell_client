@@ -2,6 +2,8 @@
 
 The Vanilla Shell Client Framework provides a foundational command-line interface for building custom shell applications. This framework is designed to be lightweight and extendable, offering basic commands and a structure for developers to add specific functionalities tailored to their needs.
 
+![screen_recording](./screen_recording.gif)
+
 ## Features
 
 - **Basic Commands**: Includes essential commands such as `exec`, `help`, and `exit` to perform operations within the shell environment without leaving the session.
